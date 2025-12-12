@@ -1,0 +1,15 @@
+{
+  "attachmentFolderPath": "static/images",
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "userIgnoreFilters": [
+    "__pycache__/",
+    "public/",
+    "resources",
+    "scripts",
+    "themes/",
+    "venv/"
+  ]
+}

@@ -1,0 +1,30 @@
+{{- partial "helper/external" (dict "Context" . "Namespace" "KaTeX") -}}
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [
+            ".main-article", 
+            ".widget--toc",
+            ".article-list--compact",
+            ".article-list",
+            ".article-summary"
+        ];
+
+        elementsToRender.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                if (element) {
+                    renderMathInElement(element, {
+                        delimiters: [
+                            { left: "$$", right: "$$", display: true },
+                            { left: "$", right: "$", display: false },
+                            { left: "\\(", right: "\\)", display: false },
+                            { left: "\\[", right: "\\]", display: true }
+                        ],
+                        ignoredClasses: ["gist"]
+                    });
+                }
+            });
+        });
+    });
+</script>
+

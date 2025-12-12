@@ -1,0 +1,79 @@
+baseURL = '<your-username>.github.io'
+languageCode = 'zh-cn'
+title = '<your-username>的技术博客'
+theme = 'Stack'
+
+
+[params]
+  mainSections = ['posts']
+  subtitle = '副标题'
+  description = '自我描述'
+  keywords = '各种, 关键字'
+  customCSS = ['css/custom.css']
+
+  [params.author]
+    name = '<your-username>'
+    email = '<your-email>'
+
+  [params.article]
+    math = true
+
+  [params.sidebar]
+    subtitle = '副标题'  # 原来的副标题搬过来
+
+    [params.sidebar.avatar]
+      enabled = true
+      local = true
+      src = 'img/avatar.png'   # 对应 assets/img/avatar.png
+
+  [params.widgets]
+    # 针对首页和列表页的侧边栏
+    [[params.widgets.homepage]]
+      type = 'search'
+    [[params.widgets.homepage]]
+      type = 'categories'
+      params = { limit = 10 }
+    [[params.widgets.homepage]]
+      type = 'tag-cloud'
+      params = { limit = 10 }
+    
+    # 针对文章单页的侧边栏
+    [[params.widgets.page]]
+      type = 'toc'
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 1 # 从 H2 (##) 开始生成 TOC
+    endLevel = 4   # 到 H4 (####) 结束
+    ordered = false # 使用无序列表
+  [markup.highlight]
+    style = 'github'
+    lineNos = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # 允许在 Markdown 中使用 HTML 标签（用于图片宽度控制）
+      unsafe = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [
+            ['\[', '\]'],
+            ['$$', '$$']
+          ]
+          inline = [
+            ['\(', '\)']
+          ]
+
+[permalinks]
+  posts = '/:year/:month/:day/:title/'
+  page = '/:slug/'
+  projects = '/projects/:slug/'
+
+# Content Transform: 在解析 Markdown 之前转换 Obsidian 图片语法
+# 注意：这需要 Hugo 0.100.0+ 版本
+# 由于 Hugo 的 content transform 功能有限，我们使用 render hook 来处理

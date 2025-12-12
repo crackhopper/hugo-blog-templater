@@ -1,0 +1,14 @@
+{
+  "hidden": true,
+  "hiddenList": [
+    "__pycache__",
+    "scripts",
+    "themes",
+    "venv",
+    "resources",
+    "assets",
+    "public",
+    "repo_to_deploy",
+    "logs"
+  ]
+}
