@@ -47,6 +47,8 @@ pip install -r requirements.txt
 
 ## 工作流
 
+使用 obsidian 打开这个仓库。
+
 ### 启动开始写作脚本
 在项目根目录执行 `.\scripts\start-writing.ps1` 可以一键启动完整的写作环境
 
@@ -120,12 +122,7 @@ draft: false  # true 表示草稿，false 表示已发布
 
 
 ## 高级：自定义样式
-这块主要给 AI Agent 看。AI可以快速帮你调整主题。
-
-主题文件夹中的：
-- layouts
-- assets
-里面的内容，可以按照原始的目录接口，拷贝到我们的目录下。随后可以自定义修改。
+参看 AGENTS.md 中的描述。
 
 ## 参考资源
 
